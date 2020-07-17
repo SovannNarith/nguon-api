@@ -122,7 +122,11 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {
+            "baseHref": "https://sovannnarith.github.io/nguon-api/",
+            "name": "Sovann Narith",
+            "email": "narithsovann6@gmail.com"
+          }
         }
       }
     }
