@@ -1,3 +1,12 @@
 <mat-toolbar color="accent">
-  <button mat-flat-button>Helo</button>
+  <a routerLink='' id="brand">NGUON API</a>
+
+  <span class="white-space"></span>
+
+  <div class="authen">
+    <button mat-stroked-button color="primary" routerLink="login" class="authen-link">LOG IN</button>
+    <button mat-flat-button color="primary" routerLink="register" class="authen-link">REGISTER</button>
+  </div>
 </mat-toolbar>
+
+<router-outlet></router-outlet>

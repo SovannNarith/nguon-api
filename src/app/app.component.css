@@ -1,0 +1,18 @@
+mat-toolbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#brand{
+    text-decoration: none;
+    color: #ffffff;
+}
+.white-space{
+    width: 50%;
+}
+.authen-link{
+    margin: auto 10px;
+    padding: 5px 20px;
+}
