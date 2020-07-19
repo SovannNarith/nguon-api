@@ -1,22 +1,31 @@
-<div>
-    <div>
-      <label>Name: </label>
-      <input (ngModel)="u_register.name" />
-    </div>
-    <div>
-        <label>Email: </label>
-        <input (ngModel)="u_register.email" />
-    </div>
-    <div>
-      <label>Password: </label>
-      <input (ngModel)="u_register.password" />
-    </div>
-    <div>
-        <label>C_Password: </label>
-        <input (ngModel)="u_register.c_password" />
-    </div>
+<div class="container container1">
+  <div class="wave"></div>
+  <div class="form">
 
-    <div>
-      <button (click)="login()">Add</button>
-    </div>
+    <h2>Register Here!</h2>
+
+    <mat-form-field appearence="fill">
+      <mat-label>Name</mat-label>
+      <input matInput>
+    </mat-form-field>
+  
+    <mat-form-field appearence="fill">
+      <mat-label>Email</mat-label>
+      <input matInput>
+    </mat-form-field>
+  
+    <mat-form-field appearence="fill">
+      <mat-label>Password</mat-label>
+      <input matInput>
+    </mat-form-field>
+  
+    <mat-form-field appearence="fill">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput>
+    </mat-form-field>
+  
+    <button mat-flat-button color="accent">Register</button>
+
+    <span id="sp">Do you have an account? <a routerLink="/login">Log in here!</a></span>
+  </div>
 </div>

@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="container">
+    <div class="curved"></div>
+
+    <div class="grap-form">
+        <form class="form" [formGroup]="fmGroup" #form>
+            <h2>Log in here!</h2>
+    
+            <mat-form-field appearence="fill">
+                <mat-label>Email</mat-label>
+                <input matInput (ngModel)="user.email" #email [value]="'122'" [formControlName]="'email'">
+            </mat-form-field>
+            <mat-form-field appearence="fill">
+                <mat-label>Password</mat-label>
+                <input matInput (ngModel)="user.password" #password [value]="password" [formControlName]="'password'">
+            </mat-form-field>
+    
+            <button mat-flat-button color="accent" (click)="onSubmit(email.value,password.value)" >Login</button>
+            <span id="sp">Do not have an account? <a routerLink="/register">Rigster Here!</a></span>
+        </form>
+    </div>
+</div>

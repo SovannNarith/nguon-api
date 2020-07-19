@@ -8,8 +8,9 @@ import { MaterialModule } from './material.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './authen/login/login.component';
 import { RegisterComponent } from './authen/register/register.component';
-import { UserService } from './services/user.service';
 import { HttpClientModule } from "@angular/common/http";
+import { AuthenService } from './services/authen.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,11 @@ import { HttpClientModule } from "@angular/common/http";
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
-    UserService
+    AuthenService
   ],
   bootstrap: [AppComponent]
 })

@@ -6,4 +6,6 @@ export class User{
     password: string;
     c_password: string;
     token?: string;
+
+    constructor(){}
 }

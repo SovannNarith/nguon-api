@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nguon-api';
+
+  isLogin(){
+    return localStorage.getItem('data')? true : false;
+  }
 }
