@@ -10,7 +10,7 @@ import { JsonPipe } from '@angular/common';
 export class AuthenService {
 
   private apiRoot = 'https://laravel-app-api.herokuapp.com/public/api/';
-  private token = 'Bearer ' + JSON.parse(localStorage.getItem('data'))['success']['token'];
+   
   constructor(private http: HttpClient) { }
 
   register(user:User): Observable<any>{
@@ -34,7 +34,7 @@ export class AuthenService {
       '',
       {
         'headers': {
-          'Authorization': this.token
+          'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('data'))['success']['token']
         }
       });
   }
@@ -44,7 +44,7 @@ export class AuthenService {
       '',
       { 'headers':
         {
-          'Authorization': this.token
+          'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('data'))['success']['token']
         }
       });
   }
