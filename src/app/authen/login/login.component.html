@@ -5,17 +5,19 @@
         <form class="form" [formGroup]="fmGroup" #form>
             <h2>Log in here!</h2>
     
-            <mat-form-field appearence="fill">
+            <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput (ngModel)="user.email" #email [value]="'122'" [formControlName]="'email'">
+                <input matInput [formControlName]="'email'">
             </mat-form-field>
-            <mat-form-field appearence="fill">
+            <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
-                <input matInput (ngModel)="user.password" #password [value]="password" [formControlName]="'password'">
+                <input matInput [formControlName]="'password'">
             </mat-form-field>
     
-            <button mat-flat-button color="accent" (click)="onSubmit(email.value,password.value)" >Login</button>
+            <button mat-flat-button color="accent" (click)="onSubmit(fmGroup.value.email,fmGroup.value.password)" >Login</button>
             <span id="sp">Do not have an account? <a routerLink="/register">Rigster Here!</a></span>
+            <button (click)="userLogout()">logout</button>
         </form>
     </div>
 </div>
+

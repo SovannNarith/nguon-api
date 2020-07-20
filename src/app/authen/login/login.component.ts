@@ -1,19 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenService } from 'src/app/services/authen.service';
-import { User } from 'src/app/model/user.module';
 import { FormGroup, FormControl } from '@angular/forms';
-import { CanActivate } from '@angular/router'; 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit, CanActivate {
+export class LoginComponent implements OnInit {
 
   fmGroup: FormGroup;
-
-  user = new User();
   constructor(private authen: AuthenService) {
     this.fmGroup = new FormGroup({
       'email': new FormControl(),
@@ -25,18 +21,21 @@ export class LoginComponent implements OnInit, CanActivate {
   }
 
   canActivate(){
-    if(localStorage.getItem('data'))
-      return true;
-    else 
-      return false;
+    return localStorage.getItem('data')? true : false;
   }
 
   onSubmit(email: string, password: string){
     this.authen.login(email.toString(),password.toString()).subscribe( data => {
-      localStorage.setItem('data', JSON.stringify(data));
+      localStorage.setItem('data',JSON.stringify(data));
       console.log(data);
-      console.log(localStorage.getItem('data'));
     });
+  }
+  
+  userLogout(){
+    this.authen.logout().subscribe( data => {
+      console.log(data);
+    });
+    localStorage.removeItem('data');
   }
 
 }
