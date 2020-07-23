@@ -7,7 +7,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from "@angular/material/icon";
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPseudoCheckboxModule } from '@angular/material/core';
+import { MatCheckboxModule } from "@angular/material/checkbox";
 @NgModule({
     imports: [
         MatToolbarModule,
@@ -18,7 +20,9 @@ import {MatMenuModule} from '@angular/material/menu';
         MatIconModule,
         MatCardModule,
         MatDividerModule,
-        MatMenuModule
+        MatMenuModule,
+        MatPseudoCheckboxModule,
+        MatCheckboxModule
     ],
     exports: [
         MatToolbarModule,
@@ -29,7 +33,9 @@ import {MatMenuModule} from '@angular/material/menu';
         MatIconModule,
         MatCardModule,
         MatDividerModule,
-        MatMenuModule
+        MatMenuModule,
+        MatPseudoCheckboxModule,
+        MatCheckboxModule
     ]
 })
 
