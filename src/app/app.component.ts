@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenService } from './services/authen.service';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +8,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'nguon-api';
-  
+  constructor(private authen: AuthenService){ }
   isLogin(): boolean{
     return localStorage.getItem('data')? true : false;
   }
 
-  getLocalStorage(){
-    return localStorage.getItem('data');
+  logOut(){
+    this.authen.logout().subscribe( data => {
+      console.log(data);
+    });
+    localStorage.clear();
   }
+
+  profile(){
+    this.authen.detail().subscribe( data => {
+      console.log(data);
+    });
+  }
+
 
 }

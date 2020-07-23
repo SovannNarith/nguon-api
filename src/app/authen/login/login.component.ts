@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenService } from 'src/app/services/authen.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   fmGroup: FormGroup;
-  constructor(private authen: AuthenService) {
+  constructor(private authen: AuthenService, private route: Router) {
     this.fmGroup = new FormGroup({
       'email': new FormControl('', [
         Validators.required,
@@ -30,14 +31,8 @@ export class LoginComponent implements OnInit {
     .subscribe( data => {
       localStorage.setItem('data',JSON.stringify(data));
       console.log(localStorage.getItem('data'));
+      this.route.navigate(['/']);
     });
-  }
-  
-  userLogout(){
-    this.authen.logout().subscribe( data => {
-      console.log(data);
-    });
-    localStorage.clear();
   }
 
 }

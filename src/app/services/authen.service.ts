@@ -29,7 +29,7 @@ export class AuthenService {
   }
 
   detail(){
-    return this.http.post(this.apiRoot + 'detail', null,{'headers': this.getToken()});
+    return this.http.post(this.apiRoot + 'details', null,{'headers': this.getToken()});
   }
 
   private getToken(){
