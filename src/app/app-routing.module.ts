@@ -4,11 +4,19 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './authen/login/login.component';
 import { RegisterComponent } from './authen/register/register.component';
 
+
 const routes: Routes = [
-  { path: '', component: WelcomeComponent},
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: '', 
+    component: WelcomeComponent
+  },
+  { path: 'login', 
+    component: LoginComponent 
+  },
+  { path: 'register', 
+    component: RegisterComponent 
+  }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -15,4 +15,5 @@ export class AppComponent {
   getLocalStorage(){
     return localStorage.getItem('data');
   }
+
 }

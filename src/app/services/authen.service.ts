@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from "../model/user.module";
-import { JsonPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -10,15 +9,11 @@ import { JsonPipe } from '@angular/common';
 export class AuthenService {
 
   private apiRoot = 'https://laravel-app-api.herokuapp.com/public/api/';
-   
+
   constructor(private http: HttpClient) { }
-
+   
   register(user:User): Observable<any>{
-    const headers = {'content-type': 'application/json'};
-    const body = JSON.stringify(user);
-
-    console.log(user, body);
-    return this.http.post(this.apiRoot + 'register', body, {'headers': headers});
+    return this.http.post(this.apiRoot + 'register', user);
   }
 
   login(email: string, password: string){
@@ -29,25 +24,16 @@ export class AuthenService {
     });
   }
 
-  detail(){
-    return this.http.post(this.apiRoot + 'detail',
-      '',
-      {
-        'headers': {
-          'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('data'))['success']['token']
-        }
-      });
-  }
-
   logout(){
-    return this.http.post(this.apiRoot + 'logout',
-      '',
-      { 'headers':
-        {
-          'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('data'))['success']['token']
-        }
-      });
+    return this.http.post(this.apiRoot + 'logout', null, {'headers': this.getToken()});
   }
 
+  detail(){
+    return this.http.post(this.apiRoot + 'detail', null,{'headers': this.getToken()});
+  }
+
+  private getToken(){
+    return {'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('data'))['success']['token']};
+  }
 
 }

@@ -1,30 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/model/user.module';
 import { AuthenService } from 'src/app/services/authen.service';
-import { MatFormFieldControl } from '@angular/material/form-field';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [
-    { provide: MatFormFieldControl, useExisting: RegisterComponent}
-  ]
 })
+
 export class RegisterComponent implements OnInit {
 
-  currentUser: User;
-  user = new User();
-
-  constructor(private authen: AuthenService) {}
+  fmGroup: FormGroup;
+  constructor(private authen: AuthenService) {
+    this.fmGroup = new FormGroup({
+      'name': new FormControl(null,[Validators.required]),
+      'email': new FormControl(null,[
+        Validators.required,
+        Validators.email
+      ]),
+      'password': new FormControl(null,[Validators.required]),
+      'c_password': new FormControl(null,[Validators.required])
+    });
+  }
 
   ngOnInit(): void {
   }
 
-  onRegister(){
-    this.authen.register(this.user).subscribe( data => {
-      this.currentUser = data;
-      console.log(this.currentUser, data);
+  onSubmit(data){
+    this.authen.register(data).subscribe( res => {
+      console.log('registered',res);
     });
   }
 
