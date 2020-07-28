@@ -28,7 +28,7 @@ export class AuthenService {
     return this.http.post(this.apiRoot + 'logout', null, {'headers': this.getToken()});
   }
 
-  detail(){
+  detail(): Observable<any>{
     return this.http.post(this.apiRoot + 'details', null,{'headers': this.getToken()});
   }
 

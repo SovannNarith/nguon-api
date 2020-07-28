@@ -20,11 +20,11 @@ export class AppComponent {
     localStorage.clear();
   }
 
-  profile(){
-    this.authen.detail().subscribe( data => {
-      console.log(data);
-    });
-  }
+  // profile(){
+  //   this.authen.detail().subscribe( data => {
+  //     console.log(data);
+  //   });
+  // }
 
 
 }
