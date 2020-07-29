@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenService } from './services/authen.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { AuthenService } from './services/authen.service';
 })
 export class AppComponent {
   title = 'nguon-api';
-  constructor(private authen: AuthenService){ }
+  constructor(private authen: AuthenService, private route: Router){ }
   isLogin(): boolean{
     return localStorage.getItem('data')? true : false;
   }
@@ -18,13 +19,7 @@ export class AppComponent {
       console.log(data);
     });
     localStorage.clear();
+    this.route.navigate(['/login']);
   }
-
-  // profile(){
-  //   this.authen.detail().subscribe( data => {
-  //     console.log(data);
-  //   });
-  // }
-
 
 }

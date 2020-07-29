@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenService } from 'src/app/services/authen.service';
 import { rejects } from 'assert';
+import { User } from 'src/app/model/user.module';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -8,7 +9,9 @@ import { rejects } from 'assert';
 })
 export class DetailsComponent implements OnInit {
 
-  public currentUser;
+  private user = new User();
+  public currentUser= {'success': this.user};
+  
   constructor(private authen: AuthenService) {
     this.profile(); 
   }

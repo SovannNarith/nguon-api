@@ -32,6 +32,14 @@ export class AuthenService {
     return this.http.post(this.apiRoot + 'details', null,{'headers': this.getToken()});
   }
 
+  public isLoggedin(){
+    if(localStorage.getItem('data')){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   private getToken(){
     return {'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('data'))['success']['token']};
   }
