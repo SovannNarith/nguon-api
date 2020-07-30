@@ -13,10 +13,10 @@ const routes: Routes = [
     component: WelcomeComponent
   },
   { path: 'login', 
-    component: LoginComponent,
+    component: LoginComponent
   },
   { path: 'register', 
-    component: RegisterComponent,
+    component: RegisterComponent
   },
   { path: 'detail',
     component: DetailsComponent,

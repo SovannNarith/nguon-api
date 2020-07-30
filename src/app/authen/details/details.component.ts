@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenService } from 'src/app/services/authen.service';
 import { rejects } from 'assert';
-import { User } from 'src/app/model/user.module';
+import { User } from 'src/app/model/user.model';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
