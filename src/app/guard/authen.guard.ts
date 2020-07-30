@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthenService } from '../services/authen.service';
+import { LoginComponent } from '../authen/login/login.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenGuard implements CanActivate {
+export class AuthenGuard implements CanActivate{
 
   constructor(private authen: AuthenService, private route: Router){}
 
@@ -16,7 +17,7 @@ export class AuthenGuard implements CanActivate {
     if(this.authen.isLoggedin()){
       return true;
     }else{
-      this.route.navigate(['/login']);
+      this.route.navigate(['/']);
     }
   }
   

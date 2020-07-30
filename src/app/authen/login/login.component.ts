@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthenService } from 'src/app/services/authen.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +11,9 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   @Input('checked') isChecked: boolean;
   fmGroup: FormGroup;
-  constructor(private authen: AuthenService, private route: Router) {
+  constructor(private authen: AuthenService,
+              private route: Router,
+              private snaker: MatSnackBar) {
     this.fmGroup = new FormGroup({
       'email': new FormControl('', [
         Validators.required,
@@ -30,14 +33,17 @@ export class LoginComponent implements OnInit {
   onSubmit(email: string, password: string){
     this.authen.login(email.toString(),password.toString())
     .subscribe( data => {
-      localStorage.setItem('data',JSON.stringify(data));
-      console.log(localStorage.getItem('data'));
-      this.route.navigate(['/']);
-      this.setIsChecked(email,password);
+      if(this.getToken()){
+        this.snaker.open('Once User has logged in','OK',{duration: 2000});
+      }else{
+        localStorage.setItem('data',JSON.stringify(data));
+        this.route.navigate(['/']);
+        this.snaker.open('Logged in successfully!','OK',{duration: 2000});
+      }
     });
   }
 
-  setIsChecked(email: string, password: string){
+  private setIsChecked(email: string, password: string){
     if(this.isChecked){
       let user = JSON.stringify([email,password])
       sessionStorage.setItem('user',user);
