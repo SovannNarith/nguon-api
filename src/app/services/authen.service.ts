@@ -28,8 +28,16 @@ export class AuthenService {
     return this.http.post(this.apiRoot + 'logout', null, {'headers': this.getToken()});
   }
 
-  detail(){
-    return this.http.post(this.apiRoot + 'detail', null,{'headers': this.getToken()});
+  detail(): Observable<any>{
+    return this.http.post(this.apiRoot + 'details', null,{'headers': this.getToken()});
+  }
+
+  public isLoggedin(){
+    if(localStorage.getItem('data')){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   private getToken(){

@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LoginComponent } from './authen/login/login.component';
 import { RegisterComponent } from './authen/register/register.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { DetailsComponent } from './authen/details/details.component';
+import { AuthenGuard } from './guard/authen.guard';
 
 
 const routes: Routes = [
@@ -14,6 +17,13 @@ const routes: Routes = [
   },
   { path: 'register', 
     component: RegisterComponent 
+  },
+  { path: 'detail',
+    component: DetailsComponent,
+    canActivate: [AuthenGuard]
+  },
+  { path: '**',
+    component: PageNotFoundComponent
   }
 ];
 

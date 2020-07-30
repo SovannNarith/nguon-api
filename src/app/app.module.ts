@@ -11,13 +11,19 @@ import { RegisterComponent } from './authen/register/register.component';
 import { HttpClientModule } from "@angular/common/http";
 import { AuthenService } from './services/authen.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { SaleProductComponent } from './products/sale-product/sale-product.component';
+import { DetailsComponent } from './authen/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageNotFoundComponent,
+    SaleProductComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

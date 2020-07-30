@@ -8,12 +8,19 @@
             routerLink="login" 
             class="authen-link">LOG IN
     </button>
+
     <button *ngIf="isLogin()"
-            mat-stroked-button 
-            color="primary" 
-            routerLink="/" 
-            class="authen-link">LOG OUT
+            mat-flat-button color="primary" 
+            [matMenuTriggerFor]="menu"
+            class="authen-link">
+            <mat-icon>account_circle</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="detail">Profile</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="logOut()">Log Out</button>
+    </mat-menu>
+
     <button *ngIf="!isLogin()" 
             mat-flat-button 
             color="primary" 

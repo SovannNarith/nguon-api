@@ -17,14 +17,18 @@
                 <input matInput type="password" [formControlName]="'password'">
             </mat-form-field>
     
-            <button 
-            id="btn-login"
-            mat-flat-button 
-            color="accent" 
-            (click)="onSubmit(fmGroup.value.email,fmGroup.value.password)">LOG IN
+            <button id="btn-login"
+                mat-flat-button 
+                color="accent" 
+                (click)="onSubmit(fmGroup.value.email,fmGroup.value.password)">LOG IN
                 <mat-spinner id="spinner" [mode]="'determinate'" *ngIf="!getToken()" color="primary" diameter=24></mat-spinner>
             </button>
-            <button (click)="userLogout()">Log OUt</button>
+
+            <div class="option">
+                <mat-checkbox [checked]="isChecked">Remember me!</mat-checkbox>
+
+                <a routerLink="reset-password">Forget password?</a>
+            </div>
             <span id="sp">Do not have an account? 
                 <a routerLink="/register">Rigster Here!</a>
             </span>
