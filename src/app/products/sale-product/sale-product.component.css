@@ -1,0 +1,17 @@
+.container{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-row: 1;
+    margin: 10px 4rem;
+    height: 75%;
+}
+
+.left-panel{
+    background-color: aqua;
+    overflow-y: scroll;
+    margin-right: 10px;
+}
+.right-panel{
+    background-color: black;
+    margin-left: 10px;
+}

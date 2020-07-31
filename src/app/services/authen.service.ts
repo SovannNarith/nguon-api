@@ -31,7 +31,7 @@ export class AuthenService {
   detail(): Observable<any>{
     return this.http.post(this.apiRoot + 'details', null,{'headers': this.getToken()});
   }
-
+//http intercepter
   public isLoggedin(){
     if(localStorage.getItem('data')){
       return true;

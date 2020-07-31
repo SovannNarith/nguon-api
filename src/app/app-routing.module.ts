@@ -6,6 +6,7 @@ import { RegisterComponent } from './authen/register/register.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { DetailsComponent } from './authen/details/details.component';
 import { AuthenGuard } from './guard/authen.guard';
+import { SaleProductComponent } from './products/sale-product/sale-product.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,9 @@ const routes: Routes = [
   { path: 'detail',
     component: DetailsComponent,
     canActivate: [AuthenGuard]
+  },
+  { path: 'order',
+    component: SaleProductComponent
   },
   { path: '**',
     component: PageNotFoundComponent

@@ -30,4 +30,20 @@
   </div>
 </mat-toolbar>
 
+<mat-toolbar *ngIf="isLogin()">
+  <button mat-stroked-button 
+          color="primary" 
+          routerLink="/order">Order Food
+  </button>
+  <button mat-stroked-button 
+          color="primary">Import Product
+  </button>
+  <button mat-stroked-button 
+          color="primary">Add New Food
+  </button>
+  <button mat-stroked-button 
+          color="primary">Report
+  </button>
+</mat-toolbar>
+
 <router-outlet></router-outlet>

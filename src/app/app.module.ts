@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { SaleProductComponent } from './products/sale-product/sale-product.component';
 import { DetailsComponent } from './authen/details/details.component';
+import { ImportComponent } from './products/import/import.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DetailsComponent } from './authen/details/details.component';
     RegisterComponent,
     PageNotFoundComponent,
     SaleProductComponent,
-    DetailsComponent
+    DetailsComponent,
+    ImportComponent
   ],
   imports: [
     BrowserModule,
