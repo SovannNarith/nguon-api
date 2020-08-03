@@ -1,4 +1,4 @@
-export class Product{
+export interface Product{
     pro_id: number;
     pro_name: string;
     pro_qty: number;
@@ -10,6 +10,4 @@ export class Product{
     
     created_at?: string;
     updated_at?: string;
-
-    constructor(){}
 }

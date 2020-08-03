@@ -1,4 +1,4 @@
-export class Payment{
+export interface Payment{
 
     pay_id: number;
     pay_desc?: string;
@@ -9,6 +9,4 @@ export class Payment{
 
     created_at?: string;
     updated_at?: string;
-
-    constructor(){}
 }

@@ -8,8 +8,7 @@ import { User } from 'src/app/model/user.model';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-
-  private user = new User();
+  private user: User;
   public currentUser= {'success': this.user};
   
   constructor(private authen: AuthenService) {

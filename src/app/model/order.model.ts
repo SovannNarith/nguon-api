@@ -1,4 +1,4 @@
-export class Order{
+export interface Order{
     order_id: number;
     order_qty: number;
     pro_id: number;
@@ -8,5 +8,4 @@ export class Order{
     created_at?: string;
     updated_at?: string;
 
-    constructor(){}
 }

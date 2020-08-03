@@ -1,4 +1,4 @@
-export class Import{
+export interface Import{
     imp_id: number;
     imp_desc: string;
 
@@ -9,6 +9,4 @@ export class Import{
 
     created_at?: string;
     updated_at?: string;
-
-    constructor(){}
 }
